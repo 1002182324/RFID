@@ -300,7 +300,6 @@ public class MainActivity extends BaseActivity {
 
         ToastUtil.makeLToast("fdsgsd");
         stateCheckedMap = ta.getStateCheckedMap();
-
         if (FileUtil.deleteFileOrDir(new File("/sdcard/pgit/TestData")) &&
                 FileUtil.deleteFileOrDir(new File("/sdcard/pgit/TestName"))) {
             for (int i = stateCheckedMap.size(); i >= 0; i--) {
