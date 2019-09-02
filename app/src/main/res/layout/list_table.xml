@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <CheckBox
+            android:id="@+id/cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:buttonTint="#0000ff"
+            android:clickable="false"
+            android:focusable="false" />
+
+        <TextView
+            android:id="@+id/batch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/batch_id"
+            android:text="125"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/shop_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/batch_id"
+            android:text="店名:"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/shop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/batch"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/shop_id"
+            android:text="ITD12"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/box_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shop_id"
+            android:text="箱号:"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shop"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/box_id"
+            android:text="12"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/batch_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="批次:"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+</LinearLayout>

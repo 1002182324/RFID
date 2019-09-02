@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RFID盘点</string>
+    <string name="title_activity_rf">RFActivity</string>
+</resources>

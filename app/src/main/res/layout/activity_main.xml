@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qmuiteam.qmui.layout.QMUILinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/btn_newpandian"
+            style="@style/QDRadiusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="@android:integer/status_bar_notification_info_maxnum"
+            android:text="新建盘点单"
+
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/btn_delpandian"
+            style="@style/QDRadiusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/btn_newpandian"
+            android:alpha="@android:integer/status_bar_notification_info_maxnum"
+            android:text="删除盘点单"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/get_pandian"
+            style="@style/QDRadiusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_newpandian"
+            android:layout_marginTop="20dp"
+            android:alpha="@android:integer/status_bar_notification_info_maxnum"
+            android:text="导出盘点单"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <com.qmuiteam.qmui.widget.QMUIAnimationListView
+        android:id="@+id/list_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:divider="@color/qmui_config_color_blue"
+        android:dividerHeight="5px"
+        android:fadeScrollbars="true"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:listSelector="@drawable/list_bg"
+        android:transcriptMode="alwaysScroll"
+
+        />
+
+    <!--    <com.qmuiteam.qmui.widget.QMUITopBar-->
+    <!--        android:id="@+id/toolbar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:fitsSystemWindows="true"></com.qmuiteam.qmui.widget.QMUITopBar>-->
+
+
+</com.qmuiteam.qmui.layout.QMUILinearLayout>
