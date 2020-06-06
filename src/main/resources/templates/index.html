@@ -1,0 +1,181 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible"/>
+    <meta charset="UTF-8"/>
+    <title>查询结果</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!--标准mui.css -->
+    <link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
+    <!--App自定义的css -->
+    <style>
+        .mui-plus header.mui-bar {
+            display: none;
+        }
+
+        .mui-plus .mui-bar-nav ~ .mui-content {
+            padding: 0px;
+        }
+
+        .hm-description {
+            margin: 0.5em 0px;
+        }
+
+        .hm-description > li {
+            color: rgb(143, 143, 148);
+            font-size: 14px;
+        }
+
+        .title {
+            background: rgb(0, 173, 58);
+            margin: 10px 10px 0px;
+            border-radius: 2px;
+            height: 35px;
+            color: rgb(255, 255, 255);
+            line-height: 35px;
+            padding-left: 45px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .text_title {
+            color: rgb(0, 172, 57);
+            float: left;
+        }
+
+        .mui-bar-nav {
+            background: rgb(0, 173, 58);
+        }
+
+        .mui-bar-nav img {
+            margin-top: 9px;
+        }
+
+        .mui-title {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+
+        }
+
+        .mui-table-view-cell {
+            line-height: 30px;
+            font-size: 14px;
+            -ms-word-break: break-all;
+        }
+
+        .mui-li-hover a {
+            display: block;
+        }
+
+        .mui-table-view-cell b {
+            padding: 0px 5px;
+            color: blue;
+        }
+
+        .mui-table-view-cell img {
+            margin-top: 8px;
+            margin-right: 5px;
+            vertical-align: text-top;
+            float: right;
+        }
+
+        .search_list {
+            width: 100%;
+        }
+
+        .search_list th {
+            color: rgb(0, 172, 57);
+        }
+
+        .search_list th {
+            padding: 10px 0px;
+            text-align: center;
+            border-bottom-color: rgb(227, 227, 227);
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+        }
+
+        .search_list td {
+            padding: 10px 0px;
+            text-align: center;
+            border-bottom-color: rgb(227, 227, 227);
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+        }
+
+        .mui-table-view-cell a:hover {
+            background: rgb(238, 238, 238);
+        }
+
+        .error_result b {
+
+        }
+
+        .not-activation {
+            color: rgb(204, 0, 0) !important;
+        }
+
+
+        /*页脚区域*/
+        .footer {
+            background: #d3d7db;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .footer .copyRight {
+            padding: 10px 15px;
+            line-height: 12px;
+            text-align: center;
+            color: #a6aeb6;
+        }
+
+    </style>
+
+    <meta name="GENERATOR" content="MSHTML 11.00.9600.18666"/>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav">
+    <h1 class="mui-title" style="text-align: center">产品追溯查询系统</h1>
+</header>
+<div class="mui-content">
+
+    <div class="title pesticide">
+        产品信息
+    </div>
+    <div class="mui-card" style="margin-bottom: 15px ;">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell"><label class="text_title">商品码：</label> <label
+                    th:text="${user.getBarcode()}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">产品名称：</label> <label
+                    th:text="${user.getPdName()}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">生产厂商：</label> <label
+                    th:text="${user.getPdCompany()}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">生产日期：</label> <label
+                    th:text="${user.getPdStarttime()}">生产日期</label></li>
+            <li class="mui-table-view-cell"><label class="text_title">保质期：</label> <label
+                    th:text="${user.getPdUsedata()}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">有效期至：</label> <label
+                    th:text="${user.getPdEndtime()}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">许可证号：</label> <label
+                    th:text="${user.getPdLicencekey()}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">查询次数：</label> <label
+                    th:text="${user.getCount()+1}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">上次查询时间：</label> <label
+                    th:text="${user.getLastTime()}"></label></li>
+            <li class="mui-table-view-cell"><label class="text_title">上次查询地址：</label> <label
+                    th:text="${user.getLastAddr()}"></label></li>
+        </ul>
+    </div>
+
+</div>
+</body>
+<div class="footer">
+    <div class="copyRight"></div>
+</div>
+
+</html>

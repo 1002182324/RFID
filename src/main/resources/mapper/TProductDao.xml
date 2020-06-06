@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codequery.dao.TProductDao">
+
+    <resultMap type="com.codequery.entity.TProduct" id="TProductMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="barcode" column="barcode" jdbcType="VARCHAR"/>
+        <result property="pdName" column="pd_name" jdbcType="VARCHAR"/>
+        <result property="pdStarttime" column="pd_starttime" jdbcType="DATE" javaType="java.lang.String"/>
+        <result property="pdCompany" column="pd_company" jdbcType="VARCHAR"/>
+        <result property="pdUsedata" column="pd_usedata" jdbcType="VARCHAR"/>
+        <result property="pdEndtime" column="pd_endtime" jdbcType="DATE" javaType="java.lang.String"/>
+        <result property="pdLicencekey" column="pd_licencekey" jdbcType="VARCHAR"/>
+        <result property="lastTime" column="last_time" jdbcType="TIMESTAMP" javaType="java.lang.String"/>
+        <result property="lastAddr" column="last_addr" jdbcType="VARCHAR"/>
+        <result property="count" column="count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryByBarcode" resultMap="TProductMap">
+        select
+        id, barcode, pd_name, pd_starttime, pd_company, pd_usedata, pd_endtime, pd_licencekey, last_time, last_addr,
+        count
+        from productinfo.t_product
+        where barcode = #{Barcode}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TProductMap">
+        select
+        id, barcode, pd_name, pd_starttime, pd_company, pd_usedata, pd_endtime, pd_licencekey, last_time, last_addr,
+        count
+        from productinfo.t_product
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="TProductMap">
+        select
+        id, barcode, pd_name, pd_starttime, pd_company, pd_usedata, pd_endtime, pd_licencekey, last_time, last_addr,
+        count
+        from productinfo.t_product
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="barcode != null and barcode != ''">
+                and barcode = #{barcode}
+            </if>
+            <if test="pdName != null and pdName != ''">
+                and pd_name = #{pdName}
+            </if>
+            <if test="pdStarttime != null">
+                and pd_starttime = #{pdStarttime,jdbcType=DATE,javaType=java.lang.String}
+            </if>
+            <if test="pdCompany != null and pdCompany != ''">
+                and pd_company = #{pdCompany}
+            </if>
+            <if test="pdUsedata != null and pdUsedata != ''">
+                and pd_usedata = #{pdUsedata}
+            </if>
+            <if test="pdEndtime != null">
+                and pd_endtime = #{pdEndtime,jdbcType=DATE,javaType=java.lang.String}
+            </if>
+            <if test="pdLicencekey != null and pdLicencekey != ''">
+                and pd_licencekey = #{pdLicencekey}
+            </if>
+            <if test="lastTime != null">
+                and last_time = #{lastTime,jdbcType=DATE,javaType=java.lang.String}
+            </if>
+            <if test="lastAddr != null">
+                and last_addr = #{lastAddr}
+            </if>
+            <if test="count != null">
+                and count = #{count}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into productinfo.t_product(barcode, pd_name, pd_starttime, pd_company, pd_usedata, pd_endtime,
+        pd_licencekey, last_time, last_addr, count)
+        values (#{barcode}, #{pdName}, #{pdStarttime}, #{pdCompany}, #{pdUsedata}, #{pdEndtime}, #{pdLicencekey},
+        #{lastTime}, #{lastAddr}, #{count})
+    </insert>
+
+    <!--通过商品码修改数据-->
+    <update id="update">
+        update productinfo.t_product
+        <set>
+            <if test="barcode != null and barcode != ''">
+                barcode = #{barcode},
+            </if>
+            <if test="pdName != null and pdName != ''">
+                pd_name = #{pdName},
+            </if>
+            <if test="pdStarttime != null">
+                pd_starttime = #{pdStarttime,jdbcType=DATE,javaType=java.lang.String},
+            </if>
+            <if test="pdCompany != null and pdCompany != ''">
+                pd_company = #{pdCompany},
+            </if>
+            <if test="pdUsedata != null and pdUsedata != ''">
+                pd_usedata = #{pdUsedata},
+            </if>
+            <if test="pdEndtime != null">
+                pd_endtime = #{pdEndtime,jdbcType=DATE,javaType=java.lang.String},
+            </if>
+            <if test="pdLicencekey != null and pdLicencekey != ''">
+                pd_licencekey = #{pdLicencekey},
+            </if>
+            <if test="lastTime != null">
+                last_time = #{lastTime,jdbcType=DATE,javaType=java.lang.String},
+            </if>
+            <if test="lastAddr != null">
+                last_addr = #{lastAddr},
+            </if>
+            <if test="count != null">
+                count = #{count},
+            </if>
+        </set>
+        where barcode = #{barcode}
+    </update>
+
+    <!--通过商品码删除-->
+    <delete id="deleteByBarcode">
+        delete from productinfo.t_product where id = #{Barcode}
+    </delete>
+
+</mapper>
